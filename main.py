@@ -1,4 +1,4 @@
-from Menu import *
+from Menu import Menu,MenuItem
 
 aspectRatio = (16, 2)
 
@@ -23,30 +23,14 @@ def printC():
     print('the letter c')
 
 
-# create a menu
-subMenu = Menu(
+Menu(
     [
-        MenuItem('Print A1', printA1),
-        MenuItem('Print A2', printA2)
+        MenuItem('A', [
+            MenuItem('A1', printA1),
+            MenuItem('A2', printA2),
+        ]),
+        MenuItem('B', printB),
+        MenuItem('C', printC),
     ],
     aspectRatio
 )
-
-mainMenu = Menu(
-    [
-        MenuItem('Print A', subMenu),
-        MenuItem('Print B', printB),
-        MenuItem('Print C', printC)
-    ],
-    aspectRatio
-)
-
-mainMenu.processMenu()
-
-# print(printA.__class__)
-# if type(printA) is function:
-#     print('obeject is function')
-# exit()
-
-# create menu
-# myMainMenu.processMenu()
