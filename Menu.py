@@ -79,7 +79,9 @@ class Menu:
             # exit the program
             elif self.lcd.select_button:
                 print("Select!")
+                self.lcd.clear()
                 exit()
+
             else:
                 time.sleep(0.1)
                 pass
@@ -91,7 +93,8 @@ class Menu:
             self.bracketPos %= self.menuSize
         else:
             self.relPointer -= 1
-        self.absPointer = (self.bracketPos + self.relPointer) % self.menuSize
+            self.absPointer = (self.bracketPos +
+                               self.relPointer) % self.menuSize
 
     # select next item in list
     def nextItem(self):
@@ -100,7 +103,8 @@ class Menu:
             self.bracketPos %= self.menuSize
         else:
             self.relPointer += 1
-        self.absPointer = (self.bracketPos + self.relPointer) % self.menuSize
+            self.absPointer = (self.bracketPos +
+                               self.relPointer) % self.menuSize
 
     # activate item at current position
     def selectItem(self):
@@ -129,6 +133,6 @@ class Menu:
                 s = self.menuItems[(self.bracketPos + y) %
                                    self.menuSize].getNoPointer()
 
-            # set cursor to current row 'y' and print string 's'
-            self.lcd.cursor_position(0, y)
-            self.lcd.message = s
+        # set cursor to current row 'y' and print string 's'
+        self.lcd.cursor_position(0, y)
+        self.lcd.message = s
