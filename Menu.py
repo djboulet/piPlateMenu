@@ -93,7 +93,7 @@ class Menu:
             self.bracketPos %= self.menuSize
         else:
             self.relPointer -= 1
-            self.absPointer = (self.bracketPos +
+        self.absPointer = (self.bracketPos +
                                self.relPointer) % self.menuSize
 
     # select next item in list
@@ -103,7 +103,7 @@ class Menu:
             self.bracketPos %= self.menuSize
         else:
             self.relPointer += 1
-            self.absPointer = (self.bracketPos +
+        self.absPointer = (self.bracketPos +
                                self.relPointer) % self.menuSize
 
     # activate item at current position
